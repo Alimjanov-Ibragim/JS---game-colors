@@ -1,14 +1,15 @@
-var a = document.querySelector('a')
-var oldHref = a.getAttribute('href')
+var h1 = document.querySelector('h1')
+var button = document.querySelector('button')
+var input = document.querySelector('input')
 
-console.log(a.attributes);
+button.addEventListener('click', function() {
+    h1.textContent = input.value
+})
 
-a.setAttribute('href','https://yandex.com')
-a.setAttribute('title', 'Go to yandex')
-a.textContent = 'Yandex'
+h1.addEventListener('mouseenter', function() {
+    this.style.color = 'red'
+})
 
-var box1 = document.querySelector('#box1')
-var box2 = document.querySelector('#box2')
-
-box1.classList.add('red')
-box2.classList.add('blue')
+h1.addEventListener('mouseleave', function() {
+    this.style.color = 'black'
+})
