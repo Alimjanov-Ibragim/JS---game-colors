@@ -1,15 +1,7 @@
-var h1 = document.querySelector('h1')
-var button = document.querySelector('button')
-var input = document.querySelector('input')
+var divs = document.querySelectorAll('div')
 
-button.addEventListener('click', function() {
-    h1.textContent = input.value
-})
-
-h1.addEventListener('mouseenter', function() {
-    this.style.color = 'red'
-})
-
-h1.addEventListener('mouseleave', function() {
-    this.style.color = 'black'
-})
+for (var i = 0; i < divs.length; i++) {
+    divs[i].addEventListener('click', function(){
+        console.log(this.getAttribute('id'))
+    }, true)
+}
