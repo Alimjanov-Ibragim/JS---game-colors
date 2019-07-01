@@ -1,29 +1,41 @@
-var divs = document.querySelectorAll('div')
-var link = document.querySelector('a')
+var str = '1,2,3,4,5,6,7,8'
 
-for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', function(event){
-        event.stopPropagation()
-        console.log(this.getAttribute('id'))
-    })
-}
+var array = str.split(',')
+    
 
-link.addEventListener('click', handleLinkClick)
+array.splice(1, 0, '22')
 
-function handleLinkClick(event) {
-    event.preventDefault()
+var newArray = array.concat(['1','2','3'])
 
-    var div = divs[0]
+// console.log(array)
+// console.log(newArray)
 
-    // if (div.style.display === 'none') {
-    //     div.style.display = 'flex'
-    // } else {
-    //     div.style.display = 'none'
-    // }
+var objArr = [
+    {
+        name: 'Ibragim', age: 24
+    },
+    {
+        name: 'Volodya', age: 30
+    },
+    {
+        name: 'Nadya', age: 18
+    }
+]
 
-    div.style.display = div.style.display === 'none'
-        ? 'flex'
-        : 'none'
+var foundPerson = objArr.find(function(person){
+    return person.age === 24
+})
 
-    console.log(div.style.display)
-}
+// console.log(foundPerson)
+
+// var num = [1,2,3,4,5,6,7,8,9,10].filter(function(i){
+//     return i % 2 === 0
+// })
+
+// console.log(num)
+
+var numArr = array.map(function(i){
+    return i * 2
+})
+
+console.log(numArr)
