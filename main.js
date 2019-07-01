@@ -1,13 +1,25 @@
-var person = {
-    name: 'Max',
-    age: 26,
-    car: {
-        model: 'Ford'
-    },
-    job: 'Frontend',
-    friends: ['Elena','Igor']
-}
+document.querySelector('button').addEventListener('click', function(event){
 
-var str = JSON.stringify(person)
+    var value = document.querySelector('input').value
 
-console.log(JSON.parse(str))
+    var obj = {
+        text: value
+    }
+
+    localStorage.setItem('headerText', JSON.stringify(obj))
+
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var obj = {}
+
+    try {
+        obj = JSON.parse(localStorage.getItem('headerText'))
+    } catch(e) {}
+    
+    if (obj && obj.text && obj.text.trim()) {
+        document.querySelector('h1').textContent = obj.text
+    }
+
+})
